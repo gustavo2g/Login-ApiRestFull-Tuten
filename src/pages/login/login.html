@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-title>Tuten.CL</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form  [formGroup]="myForm" (ngSubmit)="login()">
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Correo:</ion-label>
+    <ion-input [(ngModel)]="userData.email" formControlName="email" type="email" value=""></ion-input>
+  
+  
+  </ion-item>
+
+      <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Debe ingresar el formato Solicitado</p>
+  <ion-item>
+    <ion-label floating>Contraseña:</ion-label>
+    <ion-input [(ngModel)]="userData.password"  formControlName="password" type="password" value=""></ion-input>
+  </ion-item>
+    <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength')">Debe contener al Menos 4 Caracteres</p>
+</ion-list>
+
+<div padding>
+  <button primary block  type="submit" [disabled]="!myForm.valid" ion-button>Inicia Sesión</button>
+</div>
+</form>
+
+</ion-content>
